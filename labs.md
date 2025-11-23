@@ -1,7 +1,7 @@
-# Understanding and Working with AI Agents
-## A Hands-on Gen AI Workshop
+# Enterprise AI Accelerator Workshop
+## Day 2 - Part 1 - AI Agents
 ## Session labs 
-## Revision 1.2 - 08/26/25
+## Revision 1.0 - 11/23/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 

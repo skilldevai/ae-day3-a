@@ -202,35 +202,46 @@ convert 300
 
 1. For this lab, we'll be using a comprehensive knowledge base of OmniTech company documentation including returns policies, device troubleshooting, shipping logistics, and account security. These PDFs are located in [**knowledge_base_pdfs/**](./knowledge_base_pdfs/)
 
-2. First, we need to create the vector database from our PDFs. This will chunk the documents, create embeddings, and store them in ChromaDB. Change to the agents directory if you're not already there:
+<br><br>
+
+2. First, we need to get a smaller model to fit better in our environment. Use the first command below to pull the 1B version of llama3.2. Afterwards, you should be able to see the model in the list that Ollama is serving.
+
+```
+ollama pull llama3.2:1b
+ollama list
+```
+
+![Getting new model](./images/aia-2-16.png?raw=true "Getting new model")
+
+<br><br>
+
+3. Second, we need to create the vector database from our PDFs. This will chunk the documents, create embeddings, and store them in ChromaDB. Change to the agents directory if you're not already there, and run the indexing tool to create the vector database. This uses the same best practices from Day 1 including semantic chunking, table extraction, and rich metadata:
 
 ```
 cd agents
-```
-
-3. Now run the indexing tool to create the vector database. This uses the same best practices from Day 1 including semantic chunking, table extraction, and rich metadata:
-
-```
 python ../tools/index_pdfs.py --pdf-dir ../knowledge_base_pdfs --chroma-path ./chroma_db
 ```
 
 You should see output showing the PDFs being processed and chunks being indexed.
 
-![Indexing PDFs](./images/rag-index.png?raw=true "Indexing PDFs")
+![Indexing PDFs](./images/aia-2-14.png?raw=true "Indexing PDFs")
+
+<br><br>
 
 4. As before, we'll use the "view differences and merge" technique to build our RAG agent. The updated code incorporates all the best practices including the three-step RAG pattern:
 
 ```
 code -d ../extra/rag_agent.txt rag_agent.py
 ```
-</br></br>
-
-![Code for rag agent](./images/rag-code.png?raw=true "Code for rag agent")
 
 Notice the three key methods in the code:
-- `retrieve()` - Searches the vector database for relevant chunks
-- `build_prompt()` - Augments the user query with retrieved context
-- `generate()` - Calls the LLM to generate a grounded answer
+- `RETRIEVE` - Searches the vector database for relevant chunks
+- `AUGMENT` - Augments the user query with retrieved context
+- `GENERATE` - Calls the LLM to generate a grounded answer
+
+![Code for rag agent](./images/aia-2-15.png?raw=true "Code for rag agent")
+
+<br><br>
 
 5. When you're done merging, close the tab as usual to save your changes. Now, in a terminal, run the agent:
 
@@ -238,9 +249,13 @@ Notice the three key methods in the code:
 python rag_agent.py
 ```
 
+<br><br>
+
 6. You'll see the agent connect to the ChromaDB database and display statistics about the knowledge base including total chunks and source documents. It will also check that Ollama is running with the correct model.
 
-![RAG initialization](./images/rag-init.png?raw=true "RAG initialization")
+![RAG initialization](./images/aia-2-17.png?raw=true "RAG initialization")
+
+<br><br>
 
 7. The system will show example questions with follow-up suggestions. Notice the agent features like memory status and special commands. Try this conversation sequence:
 
@@ -256,13 +271,17 @@ Tell me more about the timeframe
 ```
 Notice: The agent detects this as a follow-up and includes conversation context!
 
+<br><br>
+
 8. You'll see the agent's intelligence in action:
    - **[AGENT MEMORY]** messages when it detects follow-ups
    - **[RETRIEVE]** with caching (may say "Using cached results")
    - **Memory status** showing conversation length and cached queries
    - Contextual answers like "As we discussed earlier..."
 
-![Agent memory in action](./images/rag-memory.png?raw=true "Agent memory in action")
+![Agent memory in action](./images/aia-2-18.png?raw=true "Agent memory in action")
+
+<br><br>
 
 9. Try another conversation thread to see memory handling:
 
@@ -271,16 +290,22 @@ What are the shipping costs?
 ```
 Then follow with:
 ```
-What about international?
+What about national?
 ```
 
-The agent understands "international" refers to shipping without you saying "international shipping costs"!
+The agent understands "national" refers to shipping without you saying "national shipping costs"!
+
+<br><br>
 
 10. Test the agent's special features:
    - Type `clear` to reset memory and start fresh
    - Ask about something NOT in docs: `What's the CEO's favorite color?`
    - Then go back to a previous topic: `What about returns?`
    - The agent will recall the earlier conversation!
+
+![Follow-up](./images/aia-2-19.png?raw=true "Follow-up")
+
+<br><br>
 
 11. After exploring, type `exit` to quit. The agent will show how many queries it processed.
 

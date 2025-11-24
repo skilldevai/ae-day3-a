@@ -25,18 +25,18 @@ This will run for a long time while it gets everything ready.
 
 After the initial startup, it will run a script to setup the python environment and install needed python pieces. This will take several more minutes to run. It will look like this while this is running.
 
-![Final prep](./images/aia-0-5.png?raw=true "Final prep")
+![Final prep](./images/aia-2-5.png?raw=true "Final prep")
 
 The codespace is ready to use when you see a prompt like the one shown below in its terminal.
 
-![Ready to use](./images/aia-0-3.png?raw=true "Ready to use")
+![Ready to use](./images/aia-2-6.png?raw=true "Ready to use")
 
 <br><br>
 
 **3. Open up the *labs.md* file so you can follow along with the labs.**
 You can either open it in a separate browser instance or open it in the codespace. 
 
-![Opening labs](./images/aia-0-4.png?raw=true "Opening labs")
+![Opening labs](./images/aia-2-7.png?raw=true "Opening labs")
 
 <br>
 

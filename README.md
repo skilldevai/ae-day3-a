@@ -6,7 +6,13 @@ These instructions will guide you through configuring a GitHub Codespaces enviro
 
 <br><br>
 
-**1. Click on the option to create a new codespace.**
+**1. Click on the button below to start a new codespace from this repository.**
+
+Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/skillrepos/aia-day2-a?quickstart=1)
+
+<br><br>
+
+**2. Then click on the option to create a new codespace.**
 
 ![Creating new codespace from button](./images/aia-2-1.png?raw=true "Creating new codespace from button")
 

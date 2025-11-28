@@ -21,7 +21,7 @@ else
 fi
 
 # Run the warmup script
-python3 "$(dirname "$0")/warmup_model.py"
+python3 "$(dirname "$0")"/warmup_model.py --quick
 
 exit_code=$?
 

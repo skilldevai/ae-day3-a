@@ -6,7 +6,7 @@ These instructions will guide you through configuring a GitHub Codespaces enviro
 
 <br><br>
 
-**1. Then click on the option to create a new codespace.**
+**1. Click on the option to create a new codespace.**
 
 ![Creating new codespace from button](./images/aia-2-1.png?raw=true "Creating new codespace from button")
 

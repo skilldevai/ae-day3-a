@@ -184,7 +184,7 @@ python curr_conv_agent.py
 convert 300
 ```
 
-![Running with partial inputs](./images/aia-2-13.png?raw=true "Running agent")   
+![Running with partial inputs](./images/aia-2-45.png?raw=true "Running agent")   
 
 
 9.  Just type "exit" when ready to quit the tool.
@@ -244,7 +244,7 @@ python ../tools/index_pdfs.py --pdf-dir ../knowledge_base_pdfs --chroma-path ./c
 
 You should see output showing the PDFs being processed and chunks being indexed.
 
-![Indexing PDFs](./images/aia-2-14.png?raw=true "Indexing PDFs")
+![Indexing PDFs](./images/aia-2-43.png?raw=true "Indexing PDFs")
 
 <br><br>
 

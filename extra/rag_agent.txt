@@ -152,11 +152,10 @@ class RAGAgent:
 
         query_lower = query.lower()
 
-        # Check for pronouns or references without context
-        if len(query_lower.split()) < 5:  # Short queries often are follow-ups
-            for indicator in follow_up_indicators:
-                if indicator in query_lower:
-                    return True
+        # Check for follow-up indicators in any query
+        for indicator in follow_up_indicators:
+            if indicator in query_lower:
+                return True
 
         # Check if query references something not fully specified
         if query_lower.startswith(("what about", "how about", "and the", "also")):
@@ -298,7 +297,7 @@ INSTRUCTIONS:
 - If this appears to be a follow-up question, consider the conversation history
 - Be specific and detailed in your response
 - Cite which document and page the information comes from when relevant
-- If referencing previous answers, mention "As we discussed earlier..."
+- Only use phrases like "As we discussed earlier" if there is actual Previous Conversation history shown above - do NOT use this phrase when referencing the Context sections from documentation
 - If the context doesn't contain enough information to fully answer the question, say so clearly
 - Provide practical, actionable information when applicable
 
@@ -377,9 +376,9 @@ ANSWER:"""
             Answer and metadata
         """
         # Check if this is a follow-up question
-        is_follow_up = self.detect_follow_up(question)
+        is_follow_up = self.detect_follow_up(question) and self.conversation_history
 
-        if is_follow_up and self.conversation_history:
+        if is_follow_up:
             print(f"{MAGENTA}[AGENT MEMORY] Detected follow-up question - including conversation context{RESET}")
 
         print(f"\n{BOLD}{BLUE}{'='*60}{RESET}")
@@ -389,7 +388,15 @@ ANSWER:"""
         print(f"{BOLD}{BLUE}{'='*60}{RESET}\n")
 
         # STEP 1: RETRIEVE
-        context_chunks = self.retrieve(question, max_results=max_context_chunks)
+        # For follow-up questions, augment the search query with context from previous question
+        search_query = question
+        if is_follow_up:
+            # Get the most recent question to provide context for retrieval
+            prev_question, _ = self.conversation_history[-1]
+            search_query = f"{prev_question} {question}"
+            print(f"{MAGENTA}[AGENT MEMORY] Enhanced search: '{search_query}'{RESET}")
+
+        context_chunks = self.retrieve(search_query, max_results=max_context_chunks)
 
         if not context_chunks:
             answer = "I couldn't find any relevant information in the documentation."
@@ -409,13 +416,6 @@ ANSWER:"""
         # Save to conversation history
         self.conversation_history.append((question, answer))
         self.last_sources = context_chunks
-
-        # Check if referencing previous information
-        if self.conversation_history and len(self.conversation_history) > 1:
-            # Check if current sources match previous sources
-            prev_topics = [q for q, _ in list(self.conversation_history)[:-1]]
-            if any(word in question.lower() for word in ["again", "previous", "earlier", "before"]):
-                answer = f"As we discussed earlier: {answer}"
 
         # Prepare response with sources
         response = {

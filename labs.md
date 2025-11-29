@@ -346,6 +346,8 @@ The agent understands "national" refers to shipping without you saying "national
 
 **Purpose: In this lab, we’ll see how to create an agent that uses the reflective pattern using the AutoGen framework.** 
 
+**NOTE: This agent generates and runs code via a subprocess, but with the full permissions of the user. It is for educational purposes only and is not secure.**
+
 ---
 
 **What the agent example does**

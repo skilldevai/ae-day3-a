@@ -17,7 +17,6 @@ from chromadb import PersistentClient
 from chromadb.config import Settings, DEFAULT_TENANT, DEFAULT_DATABASE
 
 
-
 # ANSI color codes for terminal output
 BLUE = "\033[94m"
 GREEN = "\033[92m"
@@ -58,7 +57,6 @@ class RAGAgent:
 
     def __init__(self, chroma_path: Path = CHROMA_PATH, collection_name: str = COLLECTION_NAME):
         """
- 
         """
         self.chroma_path = chroma_path
         self.collection_name = collection_name
@@ -82,8 +80,7 @@ class RAGAgent:
             logger.error("Please run 'python tools/index_pdfs.py' first to create the database.")
             raise FileNotFoundError(f"ChromaDB not found at {self.chroma_path}")
 
-        # Connect using PersistentClient (reads from disk)
-        
+        # Connect using PersistentClient (reads from disk)        
 
         try:
             # Get existing collection
@@ -118,10 +115,10 @@ class RAGAgent:
 
         query_lower = query.lower()
 
-        if len(query_lower.split()) < 5:  # Short queries often are follow-ups
-            for indicator in follow_up_indicators:
-                if indicator in query_lower:
-                    return True
+        # Check for follow-up indicators in any query
+        for indicator in follow_up_indicators:
+            if indicator in query_lower:
+                return True
 
 
         return False
@@ -255,12 +252,6 @@ class RAGAgent:
 
     def query(self, question: str, max_context_chunks: int = 3) -> Dict:
         """
-        """
-        # Check if this is a follow-up question
-        is_follow_up = self.detect_follow_up(question)
-
-        if is_follow_up and self.conversation_history:
-            print(f"{MAGENTA}[AGENT MEMORY] Detected follow-up question - including conversation context{RESET}")
 
         print(f"\n{BOLD}{BLUE}{'='*60}{RESET}")
         print(f"{BOLD}{BLUE}RAG Query: {question}{RESET}")
@@ -280,13 +271,8 @@ class RAGAgent:
 
 
         # Save to conversation history
-
-        # Check if referencing previous information
-        if self.conversation_history and len(self.conversation_history) > 1:
-            # Check if current sources match previous sources
-            prev_topics = [q for q, _ in list(self.conversation_history)[:-1]]
-            if any(word in question.lower() for word in ["again", "previous", "earlier", "before"]):
-                answer = f"As we discussed earlier: {answer}"
+        self.conversation_history.append((question, answer))
+        self.last_sources = context_chunks
 
         # Prepare response with sources
         response = {

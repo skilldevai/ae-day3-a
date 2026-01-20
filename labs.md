@@ -1,7 +1,7 @@
 # Applied AI Engineering for the Enterprise
 ## Day 3 - AI Agents
 ## Session labs 
-## Revision 1.10 - 01/19/26
+## Revision 1.10 - 01/20/26
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 

@@ -408,13 +408,13 @@ python reflect_agent.py
 determine if a number is prime or not
 ```
 
-![Simple task](./images/aia-2-20.png?raw=true "Simple task")
+![Simple task](./images/ae50.png?raw=true "Simple task")
 
 <br><br>
 
 4. After this, you should see a "Generating Code..." message indicating the coding agent is generating code. Then you'll see the suggested code.
 
-![Suggested code](./images/aia-2-21.png?raw=true "Suggested code")
+![Suggested code](./images/ae51.png?raw=true "Suggested code")
 
 <br><br>
 
@@ -434,7 +434,7 @@ Determine if a number is prime or not, but inject an error. Do not include a com
 
 7. After this runs, and the initial code is generated, you should see the "Critique" section noting this as a "FAIL". The agent will then attempt to automatically fix the code and suggest "Fixed Code". Then it will attempt to execute the fixed code it generated. If all goes well, you'll see a message after that indicating that the fixed code was "Executed successfully."
 
-![Fix run](./images/aia-2-23.png?raw=true "Fix run")
+![Fix run](./images/ae52.png?raw=true "Fix run")
 
 <br><br>
 

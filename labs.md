@@ -545,7 +545,7 @@ This will do the following:
 - Test that agent calls BOTH tools (calculator AND weather)
 - Verify agent reasoning chain
 
-![Passing test](./images/aa82.png?raw=true "Passing test")
+![Passing test](./images/ae57.png?raw=true "Passing test")
 
 <br><br>
 
@@ -555,7 +555,7 @@ This will do the following:
 code test_agent_reasoning.py
 ```
 
-Look at `test_real_agent_tool_selection()` - it checks:
+Look at `test_real_agent_tool_selection()` (around line 310) - it checks:
 - Did agent parse the compound query?
 - Did agent sequence tool calls correctly?
 - Did agent synthesize results?

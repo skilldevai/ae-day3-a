@@ -505,7 +505,7 @@ python -m pytest test_agent_reasoning.py::test_agent_selects_weather -v -s
 
 You should see output showing what each test validates. The `-s` flag shows print statements so you can see what's being tested.
 
-![Passing test](./images/aa79.png?raw=true "Passing test")
+![Passing test](./images/aa54.png?raw=true "Passing test")
 
 <br><br>
 
@@ -518,7 +518,7 @@ python -m pytest test_agent_reasoning.py::test_ambiguous_query -v -s
 
 5. This test verifies the agent asks for clarification when query is unclear. All instant because LLM responses are mocked.
 
-![Passing test](./images/aa80.png?raw=true "Passing test")
+![Passing test](./images/ae55.png?raw=true "Passing test")
 
 <br><br>
 
@@ -530,7 +530,7 @@ python -m pytest test_agent_reasoning.py::test_tool_failure_recovery -v -s
 
 7. Watch the output - you'll see the tool return an error message (not crash), demonstrating that the agent can receive errors and explain them to users. This completes instantly with mocked responses.
 
-![Passing test](./images/aa81.png?raw=true "Passing test")
+![Passing test](./images/ae56.png?raw=true "Passing test")
 
 <br><br>
 
@@ -539,7 +539,7 @@ python -m pytest test_agent_reasoning.py::test_tool_failure_recovery -v -s
 python -m pytest test_agent_reasoning.py::test_real_agent_tool_selection -v -s
 ```
 
-This will do the following: (running time: ~2-3 min):
+This will do the following: 
 - Give agent: "What's 25 times 4 and what's the weather in Tokyo?"
 - Test that agent correctly identifies TWO tasks
 - Test that agent calls BOTH tools (calculator AND weather)

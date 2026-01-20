@@ -154,7 +154,7 @@ Convert 100 USD to EUR
 
 5. The agent may pause for a bit as the LLM loads and the processing happens. When it is finished with this run, you'll see output like the screenshot below. Notice that since we used the SmolAgents CodeAgent type, you can see the code it created and executed in the black box. **NOTE: This initial run will take several minutes!** While you are waiting on it to complete, this is a good time to go back and look at the code in *curr_conv_agent.py* to understand more about it.
 
-![Running agent](./images/aia-2-11.png?raw=true "Running agent")   
+![Running agent](./images/ae38.png?raw=true "Running agent")   
 
 <br><br>
 
@@ -175,7 +175,7 @@ Convert 400 to JPY
 cat currency_memory.json
 ```
 
-![Looking at memory file](./images/aia-2-12.png?raw=true "Looking at memory file") 
+![Looking at memory file](./images/ae41.png?raw=true "Looking at memory file") 
 
 8. Finally, you can start the agent again and enter "history" at the prompt to see the persisted history from before. Then you can try a query and it should pick up as before. In the example, we used the query below:
 
@@ -184,7 +184,7 @@ python curr_conv_agent.py
 convert 300
 ```
 
-![Running with partial inputs](./images/aia-2-45.png?raw=true "Running agent")   
+![Running with partial inputs](./images/ae42.png?raw=true "Running agent")   
 
 
 9.  Just type "exit" when ready to quit the tool.

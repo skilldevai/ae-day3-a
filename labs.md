@@ -224,18 +224,18 @@ convert 300
 
 <br><br>
 
-2. First, we need to get a smaller model to fit better in our environment. Use the first command below to pull the 1B version of llama3.2. Afterwards, you should be able to see the model in the list that Ollama is serving.
+2. We'll also be using a smaller model to fit better in our environment. You can verify that the *llama3.2:1b* model is present using the first command below. If it is not for some reason, you can use the second command get it.
 
 ```
-ollama pull llama3.2:1b
 ollama list
+ollama pull llama3.2:1b
 ```
 
-![Getting new model](./images/aia-2-16.png?raw=true "Getting new model")
+![Getting new model](./images/ae43.png?raw=true "Getting new model")
 
 <br><br>
 
-3. Second, we need to create the vector database from our PDFs. This will chunk the documents, create embeddings, and store them in ChromaDB. Change to the agents directory if you're not already there, and run the indexing tool to create the vector database. This uses the same best practices from Day 1 including semantic chunking, table extraction, and rich metadata:
+3. Now, we need to create the vector database from our PDFs. This will chunk the documents, create embeddings, and store them in ChromaDB. Change to the agents directory if you're not already there, and run the indexing tool to create the vector database. This uses the same best practices from Day 1 including semantic chunking, table extraction, and rich metadata:
 
 ```
 cd agents
@@ -244,7 +244,7 @@ python ../tools/index_pdfs.py --pdf-dir ../knowledge_base_pdfs --chroma-path ./c
 
 You should see output showing the PDFs being processed and chunks being indexed.
 
-![Indexing PDFs](./images/aia-2-43.png?raw=true "Indexing PDFs")
+![Indexing PDFs](./images/ae44.png?raw=true "Indexing PDFs")
 
 <br><br>
 
@@ -273,7 +273,7 @@ python rag_agent.py
 
 6. You'll see the agent connect to the ChromaDB database and display statistics about the knowledge base including total chunks and source documents. It will also check that Ollama is running with the correct model.
 
-![RAG initialization](./images/aia-2-17.png?raw=true "RAG initialization")
+![RAG initialization](./images/ae45.png?raw=true "RAG initialization")
 
 <br><br>
 
@@ -285,7 +285,12 @@ How can I return a product?
 ```
 The agent will provide a detailed answer with sources.
 
-**Follow-up (demonstrating memory):**
+![First question](./images/ae46.png?raw=true "First question")
+
+<br><br>
+
+8. Now let's try a follow-up question to demonstrate the use of the agent's memory. Try this question.
+
 ```
 Tell me more about the timeframe
 ```
@@ -293,13 +298,13 @@ Notice: The agent detects this as a follow-up and includes conversation context!
 
 <br><br>
 
-8. You'll see the agent's intelligence in action:
+You'll see the agent's *intelligence* in action:
    - **[AGENT MEMORY]** messages when it detects follow-ups
    - **[RETRIEVE]** with caching (may say "Using cached results")
    - **Memory status** showing conversation length and cached queries
    - Contextual answers like "As we discussed earlier..."
 
-![Agent memory in action](./images/aia-2-18.png?raw=true "Agent memory in action")
+![Agent memory in action](./images/ae47.png?raw=true "Agent memory in action")
 
 <br><br>
 
@@ -315,15 +320,14 @@ What about national?
 
 The agent understands "national" refers to shipping without you saying "national shipping costs"!
 
+![Agent memory in action](./images/ae48.png?raw=true "Agent memory in action")
+
 <br><br>
 
-10. Test the agent's special features:
-   - Type `clear` to reset memory and start fresh
+10. You can also see the response when you ask a question that the agent doesn't have any information about.
    - Ask about something NOT in docs: `What's the CEO's favorite color?`
-   - Then go back to a previous topic: `What about returns?`
-   - The agent will recall the earlier conversation!
-
-![Follow-up](./images/aia-2-19.png?raw=true "Follow-up")
+   
+![Follow-up](./images/ae49.png?raw=true "Follow-up")
 
 <br><br>
 

@@ -1,7 +1,7 @@
 # Applied AI Engineering for the Enterprise
 ## Day 3 - AI Agents
 ## Session labs 
-## Revision 1.10 - 01/20/26
+## Revision 1.11 - 01/20/26
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -29,7 +29,7 @@
 
 ### Steps
 
-1. In our repository, we have a set of Python programs that we'll be building out to work with concepts in the labs. These are mostly in the *agents* subdirectory. Go to the *TERMINAL* tab in the bottom part of your codespace and change into that directory.
+1. In our repository, we have a set of Python programs that we'll be building out to work with concepts in the labs. These are mostly in the *agents* subdirectory. Go to the *TERMINAL* tab in the bottom part of your IDE and change into that directory.
 ```
 cd agents
 ```

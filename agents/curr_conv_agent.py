@@ -2,7 +2,16 @@ import os
 import json
 import re
 import requests
+import warnings
 from smolagents import CodeAgent, LiteLLMModel, tool
+
+# Silence noisy Pydantic v2 serialization warnings emitted by upstream libs (e.g., LiteLLM)
+warnings.filterwarnings(
+    "ignore",
+    message=r"^Pydantic serializer warnings:.*",
+    category=UserWarning,
+    module=r"pydantic\.main",
+)
 
 # -----------------------------------------------------------------------------
 # MEMORY PERSISTENCE (with history)
@@ -96,3 +105,4 @@ if __name__ == "__main__":
 
         except Exception as e:
             print(f"Error: {e}\n")
+

@@ -1,4 +1,4 @@
-# Enterprise AI Accelerator - Day 2 - Part 1
+# Applied AI Engineering for the Enterprise - Day 3 - Part 1
 
 ## AI Agents ##
 
@@ -8,7 +8,7 @@ These instructions will guide you through configuring a GitHub Codespaces enviro
 
 **1. Click on the button below to start a new codespace from this repository.**
 
-Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/skillrepos/aia-day2-a?quickstart=1)
+Click here ➡️  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/skilldevai/ae-day3-a?quickstart=1)
 
 <br><br>
 

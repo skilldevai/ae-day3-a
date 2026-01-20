@@ -1,7 +1,7 @@
-# Enterprise AI Accelerator Workshop
-## Day 2 - Part 1 - AI Agents
+# Applied AI Engineering for the Enterprise
+## Day 3 - AI Agents
 ## Session labs 
-## Revision 1.1 - 11/28/25
+## Revision 1.10 - 01/19/26
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 

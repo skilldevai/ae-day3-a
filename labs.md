@@ -79,7 +79,7 @@ python agent1.py
 
 8. The agent will start running and will prompt for a location (or "exit" to finish). (This may take a while to run.) At the prompt, you can type in a location like "Paris, France" or "London" or "Raleigh" and hit *Enter*. After that you'll be able to see the Thought -> Action -> Observation loop in practice as each one is listed out. You'll also see the arguments being passed to the tools as they are called. Finally you should see a human-friendly message from the AI summarizing the weather forecast.
 
-![Agent run](./images/aia-2-8.png?raw=true "Agent run") 
+![Agent run](./images/ae36.png?raw=true "Agent run") 
 
 <br><br>
 
@@ -148,11 +148,11 @@ python curr_conv_agent.py
 Convert 100 USD to EUR
 ```
 
-![Running agent](./images/aia-2-10.png?raw=true "Running agent") 
+![Running agent](./images/ae37.png?raw=true "Running agent") 
 
 <br><br>
 
-5. The agent will run for a while and not return as the LLM loads and the processing happens. When it is finished with this run, you'll see output like the screenshot below. Notice that since we used the SmolAgents CodeAgent type, you can see the code it created and executed in the black box. **NOTE: This initial run will take several minutes!** While you are waiting on it to complete, this is a good time to go back and look at the code in *curr_conv_agent.py* to understand more about it.
+5. The agent may pause for a bit as the LLM loads and the processing happens. When it is finished with this run, you'll see output like the screenshot below. Notice that since we used the SmolAgents CodeAgent type, you can see the code it created and executed in the black box. **NOTE: This initial run will take several minutes!** While you are waiting on it to complete, this is a good time to go back and look at the code in *curr_conv_agent.py* to understand more about it.
 
 ![Running agent](./images/aia-2-11.png?raw=true "Running agent")   
 

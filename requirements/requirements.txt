@@ -21,12 +21,11 @@ requests>=2.28        # for the weather‐lookup tool
 sentence-transformers==4.1.0
 
 # -- Others ----
-ollama
-pandas
-litellm
-pydantic
-pdfplumber
-
+ollama==0.6.1
+pandas==2.3.3
+litellm==1.68.0
+pydantic==2.12.5
+pdfplumber==0.11.9
 
 
 

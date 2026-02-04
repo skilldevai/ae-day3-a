@@ -520,7 +520,7 @@ python -m pytest test_agent_reasoning.py::test_agent_selects_weather -v -s
 
 You should see output showing what each test validates. The `-s` flag shows print statements so you can see what's being tested.
 
-![Passing test](./images/aa54.png?raw=true "Passing test")
+![Passing test](./images/ae163.png?raw=true "Passing test")
 
 <br><br>
 

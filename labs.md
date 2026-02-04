@@ -1,7 +1,7 @@
 # Applied AI Engineering for the Enterprise
 ## Day 3 - AI Agents
 ## Session labs 
-## Revision 1.6 - 02/03/26
+## Revision 1.7 - 02/03/26
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -361,15 +361,15 @@ What about national?
 </br></br>
 
 
-**Lab 4 - Building Agents with the Reflective Pattern**
+**Lab 4 - Building Multiagent workflows with the Reflective Pattern**
 
-**Purpose: In this lab, we’ll see how to create an agent that uses the reflective pattern using the AutoGen framework.** 
+**Purpose: In this lab, we’ll see how to create a multiagent workflow that uses the reflective pattern using the AutoGen framework.** 
 
-**NOTE: This agent generates and runs code via a subprocess, but with the full permissions of the user. It is for educational purposes only and is not secure.**
+**NOTE: This process generates and runs code via a subprocess, but with the full permissions of the user. It is for educational purposes only and is not secure.**
 
 ---
 
-**What the agent example does**
+**What the multiagent example does**
 - Accepts a user request to generate Python code (e.g., “Plot a sine wave”).
 - Uses a **code writer agent** to generate the initial response.
 - Simulates execution of the generated code in a **sandboxed subprocess**, capturing any runtime output or errors.
@@ -453,7 +453,7 @@ Determine if a number is prime or not, but inject an error. Do not include a com
 
 <br><br>
 
-8. Let's try one more change. Use "*exit*" to stop the current agent. We have a version of the code that has some extra functionality built-in to stream output, print system_messages, show when an agent is running, etc. It's in the "extra" directory, under "reflect_agent_verbose.py". Go ahead and run that and try a prompt with it. You can try the same prompt as in step 7 if you want. (You can type "exit" to stop the running one.)
+8. Let's try one more change. Use "*exit*" to stop the current agent. We have a version of the code that has some extra functionality built-in to stream output, print system_messages, show when an agent is running, etc. It's in the "extra" directory, under "reflect_agent_verbose.py". Go ahead and run that and try a prompt with it. You can try the same prompt as in step 6 if you want. (You can type "exit" to stop the running one.)
 
 ```
 python ../extra/reflect_agent_verbose.py

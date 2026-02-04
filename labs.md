@@ -1,7 +1,7 @@
 # Applied AI Engineering for the Enterprise
 ## Day 3 - AI Agents
 ## Session labs 
-## Revision 1.5 - 01/20/26
+## Revision 1.6 - 02/03/26
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -85,6 +85,10 @@ python agent1.py
 
 9. You can then input another location and run the agent again or exit. Note that the API may be limiting the number of accesses in a short period of time and so you may see the agent retrying.
 
+10. Try putting in *Sydney, Austrailia* and then check the output against the weather forecast on the web. Why do you think it doesn't match? How would you fix it?
+
+Here's a clue: "If latitude/longitude is in the Southern or Western hemisphere, use negative values as appropriate"
+
 <p align="center">
 <b>[END OF LAB]</b>
 </p>
@@ -152,7 +156,7 @@ Convert 100 USD to EUR
 
 <br><br>
 
-5. The agent may pause for a bit as the LLM loads and the processing happens. When it is finished with this run, you'll see output like the screenshot below. Notice that since we used the SmolAgents CodeAgent type, you can see the code it created and executed in the black box. **NOTE: This initial run will take several minutes!** While you are waiting on it to complete, this is a good time to go back and look at the code in *curr_conv_agent.py* to understand more about it.
+5. The agent may pause for a bit as the LLM loads and the processing happens. When it is finished with this run, you'll see output like the screenshot below. Notice that since we used the SmolAgents CodeAgent type, you can see the code it created and executed in the black box. While you are waiting on it to complete, this is a good time to go back and look at the code in *curr_conv_agent.py* to understand more about it.
 
 ![Running agent](./images/ae38.png?raw=true "Running agent")   
 
@@ -235,7 +239,7 @@ ollama pull llama3.2:1b
 
 <br><br>
 
-3. Now, we need to create the vector database from our PDFs. This will chunk the documents, create embeddings, and store them in ChromaDB. Change to the agents directory if you're not already there, and run the indexing tool to create the vector database. This uses the same best practices from Day 1 including semantic chunking, table extraction, and rich metadata:
+3. Now, we need to create the vector database from our PDFs. This will chunk the documents, create embeddings, and store them in ChromaDB. Change to the agents directory if you're not already there, and run the indexing tool to create the vector database. This uses the same best practices from Day 2 including semantic chunking, table extraction, and rich metadata:
 
 ```
 cd agents
@@ -331,7 +335,18 @@ The agent understands "national" refers to shipping without you saying "national
 
 <br><br>
 
-11. After exploring, type `exit` to quit. The agent will show how many queries it processed.
+11. Try clearing the context and then asking one of the questions again. You should see that the agent doesn't continue the previous conversation.
+
+```
+clear
+What about national?
+```
+
+![Cleared context](./images/ae162.png?raw=true "Cleared context")
+
+<br><br>
+
+12. After exploring, type `exit` to quit. The agent will show how many queries it processed since the context was started/cleared.
 
 **Key Takeaways - What Makes This an Agent:**
 - **Memory & State**: Unlike simple RAG, this agent maintains conversation history

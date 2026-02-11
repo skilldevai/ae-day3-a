@@ -1,7 +1,7 @@
 # Applied AI Engineering for the Enterprise
 ## Day 3 - AI Agents
 ## Session labs 
-## Revision 1.7 - 02/03/26
+## Revision 1.8 - 02/10/26
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -85,7 +85,7 @@ python agent1.py
 
 9. You can then input another location and run the agent again or exit. Note that the API may be limiting the number of accesses in a short period of time and so you may see the agent retrying.
 
-10. Try putting in *Sydney, Austrailia* and then check the output against the weather forecast on the web. Why do you think it doesn't match? How would you fix it?
+10. Try putting in *Sydney, Australia* and then check the output against the weather forecast on the web. Why do you think it doesn't match? How would you fix it?
 
 Here's a clue: "If latitude/longitude is in the Southern or Western hemisphere, use negative values as appropriate"
 
